@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlitchCode", "GlitchCode\GlitchCode.csproj", "{7C353B03-8274-4CD5-8E4B-7D231844106D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C353B03-8274-4CD5-8E4B-7D231844106D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C353B03-8274-4CD5-8E4B-7D231844106D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C353B03-8274-4CD5-8E4B-7D231844106D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C353B03-8274-4CD5-8E4B-7D231844106D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9336DC2B-6CD0-4604-9543-6F9BD208A438}
+	EndGlobalSection
+EndGlobal
