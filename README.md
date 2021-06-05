@@ -8,4 +8,4 @@
 GlitchCode is free, open source, modern code editor created in C#
 
 ### Download
-The program is still under development, therefore it is not available for download. 
+Get the latest version of [GlitchCode](https://github.com/MichixYT/GlitchCode/releases)
