@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>GlitchCode2.ico</ApplicationIcon>
+    <ApplicationIcon>Images\GlitchCode.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
@@ -127,7 +127,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GlitchCode2.png" />
+    <Resource Include="Images\GlitchCode.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -142,10 +142,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GlitchCode2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GlitchCode.png" />
+    <Resource Include="Images\GlitchCode.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

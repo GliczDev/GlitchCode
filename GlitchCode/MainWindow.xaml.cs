@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Xml;
 
@@ -19,11 +20,24 @@ namespace GlitchCode
         public MainWindow()
         {
             InitializeComponent();
+            AvalonEdit.Options.EnableHyperlinks = false;
+            if (App.startupFile != null)
+                AvalonEdit.Load(App.startupFile);
+        }
+
+        bool fileDeleteWarning()
+        {
+            if (MessageBox.Show("Are you sure, to close current file?", "GlitchCode", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes).Equals(MessageBoxResult.Yes))
+            {
+                return true;
+            }
+            return false;
         }
 
         private void closeButton_Click(object sender, MouseButtonEventArgs e)
         {
-            Close();
+            if (fileDeleteWarning())
+                Close();
         }
         private void maximazeButton_Click(object sender, MouseButtonEventArgs e)
         {
@@ -44,13 +58,15 @@ namespace GlitchCode
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            this.DragMove();
+            if (e.LeftButton.Equals(MouseButtonState.Pressed))
+                DragMove();
         }
 
         //File (MenuStrip)
         private void newButton_Click(object sender, RoutedEventArgs e)
         {
-            AvalonEdit.Text = "";
+            if (fileDeleteWarning())
+                AvalonEdit.Text = "";
         }
 
         private void openButton_Click(object sender, RoutedEventArgs e)
@@ -58,7 +74,8 @@ namespace GlitchCode
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Filter = allExtensions;
             if (openDialog.ShowDialog() == true)
-                AvalonEdit.Text = File.ReadAllText(openDialog.FileName);
+                if (fileDeleteWarning())
+                    AvalonEdit.Load(openDialog.FileName);
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -71,12 +88,14 @@ namespace GlitchCode
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            AvalonEdit.Text = "";
+            if (fileDeleteWarning())
+                AvalonEdit.Text = "";
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if (fileDeleteWarning())
+                Close();
         }
 
         //ContextMenu/Edit (MenuStrip)
@@ -108,6 +127,36 @@ namespace GlitchCode
         private void selectAllButton_Click(object sender, RoutedEventArgs e)
         {
             AvalonEdit.SelectAll();
+        }
+        
+        //Shortcuts
+        private void shortCutNewButton_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (fileDeleteWarning())
+                AvalonEdit.Text = "";
+        }
+
+        private void shortCutOpenButton_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = allExtensions;
+            if (openDialog.ShowDialog() == true)
+                if (fileDeleteWarning())
+                    AvalonEdit.Load(openDialog.FileName);
+        }
+
+        private void shortCutSaveButton_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = allExtensions;
+            if (saveDialog.ShowDialog() == true)
+                AvalonEdit.Save(saveDialog.FileName);
+        }
+
+        private void shortCutCloseButton_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (fileDeleteWarning())
+                AvalonEdit.Text = "";
         }
     }
 }
