@@ -1,12 +1,12 @@
-﻿using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+﻿using DiscordRPC;
 using Microsoft.Win32;
-using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Xml;
 
 namespace GlitchCode
 {
@@ -17,12 +17,33 @@ namespace GlitchCode
     {
         string allExtensions = "All files|*.*|ASP/XHTML|*.asp;*.aspx;*.asax;*.asmx;*.ascx;*.master|Boo|*.boo|Coco|*.atg|C++|*.c;*.h;*.cc;*.cpp;*.hpp|C#|*.cs|CSS|*.css|BAT|*.bat;*.dos|F#|*.fs|HSLS|*.fx|HTML|*.htm;*.html|INI|*.cfg;*.conf;*.ini;*.iss|Java|*.java|JavaScript|*.js|LOG|*.log|MarkDown|*.md|Pascal|*.pas|Patch|*.patch;*.diff|PHP|*.php|PLSQL|*.plsql|PowerShell|*.ps1;*.psm1;*.psd1|Python|*.py;*.pyw|Ruby|*.rb|Scheme|*.sls;*.sps;*.ss;*.scm|Squirrel|*.nut|Tex|*.tex|TSQL|*.sql|TXT|*.txt|VB|*.vb|VTL|*.vtl;*.vm|XML|*.xml;*.xsl;*.xslt;*.xsd;*.manifest;*.config;*.addin;*.xshd;*.wxs;*.wxi;*.wxl;*.proj;*.csproj;*.vbproj;*.ilproj;*.booproj;*.build;*.xfrm;*.targets;*.xaml;*.xpt;*.xft;*.map;*.wsdl;*.disco;*.ps1xml;*.nuspec";
 
+        DiscordRpcClient client = new DiscordRpcClient("854763230080794664");
+
         public MainWindow()
         {
             InitializeComponent();
             AvalonEdit.Options.EnableHyperlinks = false;
             if (App.startupFile != null)
                 AvalonEdit.Load(App.startupFile);
+            client.Initialize();
+            client.SetPresence(new RichPresence()
+            {
+                Details = "Editing code...",
+                Timestamps = Timestamps.Now,
+                Buttons = new Button[]
+                {
+                        new Button()
+                        {
+                            Label = "Get GlitchCode",
+                            Url = "https://github.com/MichixYT/GlitchCode"
+                        }
+                },
+                Assets = new Assets()
+                {
+                    LargeImageKey = "glitchcode",
+                    LargeImageText = "GlitchCode"
+                }
+            });
         }
 
         bool fileDeleteWarning()
@@ -32,6 +53,36 @@ namespace GlitchCode
                 return true;
             }
             return false;
+        }
+
+        async void publishCode(string Code)
+        {
+            if (string.IsNullOrWhiteSpace(Code))
+                Code = " ";
+            CookieContainer cookies = new CookieContainer();
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.CookieContainer = cookies;
+            using (HttpClient client = new HttpClient(handler))
+            {
+                using (HttpResponseMessage response = client.GetAsync("https://code.skript.pl").Result)
+                {
+                    HttpHeaders headers = response.Headers;
+                    HttpContent content = response.Content;
+                    string myContent = content.ReadAsStringAsync().Result;
+                    Regex regex = new Regex("name='csrf-token' content='(.*)'");
+                    var otherLang = regex.Match(myContent).Groups[1];
+                    var values = new Dictionary<string, string>
+                    {
+                        { "lang", "text" },
+                        { "content", Code },
+                        { "_token", otherLang.ToString() }
+                    };
+                    var content2 = new FormUrlEncodedContent(values);
+                    var response2 = await client.PostAsync("https://code.skript.pl/create", content2);
+                    var responseString = response2.RequestMessage.RequestUri;
+                    System.Diagnostics.Process.Start(responseString.ToString());
+                }
+            }
         }
 
         private void closeButton_Click(object sender, MouseButtonEventArgs e)
@@ -84,6 +135,11 @@ namespace GlitchCode
             saveDialog.Filter = allExtensions;
             if (saveDialog.ShowDialog() == true)
                 AvalonEdit.Save(saveDialog.FileName);
+        }
+
+        private void publishCodeButton_Click(object sender, RoutedEventArgs e)
+        {
+            publishCode(AvalonEdit.Text);
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -151,6 +207,11 @@ namespace GlitchCode
             saveDialog.Filter = allExtensions;
             if (saveDialog.ShowDialog() == true)
                 AvalonEdit.Save(saveDialog.FileName);
+        }
+
+        private void shortCutPublishCodeButton_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            publishCode(AvalonEdit.Text);
         }
 
         private void shortCutCloseButton_Click(object sender, ExecutedRoutedEventArgs e)

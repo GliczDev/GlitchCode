@@ -16,3 +16,8 @@ D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.pdb
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\ICSharpCode.AvalonEdit.dll
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\ICSharpCode.AvalonEdit.xml
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.csproj.CopyComplete
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\DiscordRPC.dll
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\Newtonsoft.Json.dll
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\DiscordRPC.pdb
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\DiscordRPC.xml
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\Newtonsoft.Json.xml

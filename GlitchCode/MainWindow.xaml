@@ -42,17 +42,46 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <Style x:Key="Buttons" TargetType="{x:Type Ellipse}">
+            <Setter Property="Opacity" Value="0.25" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                  To="1" Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                  To="0.25" Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New" Executed="shortCutNewButton_Click"/>
         <CommandBinding Command="ApplicationCommands.Open" Executed="shortCutOpenButton_Click"/>
         <CommandBinding Command="ApplicationCommands.Save" Executed="shortCutSaveButton_Click"/>
+        <!--
+        <CommandBinding Command="ApplicationCommands.PublishCode" Executed="shortCutPublishCodeButton_Click"/>
+        -->
         <CommandBinding Command="ApplicationCommands.Close" Executed="shortCutCloseButton_Click"/>
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="N" Command="ApplicationCommands.New"/>
         <KeyBinding Modifiers="Ctrl" Key="O" Command="ApplicationCommands.Open"/>
         <KeyBinding Modifiers="Ctrl" Key="S" Command="ApplicationCommands.Save"/>
+        <!--
+        <KeyBinding Modifiers="Ctrl" Key="P" Command="ApplicationCommands.Save"/>
+        -->
         <KeyBinding Modifiers="Ctrl" Key="W" Command="ApplicationCommands.Close"/>
     </Window.InputBindings>
     <Border Background="#2C2F33" CornerRadius="10">
@@ -71,6 +100,8 @@
                     <MenuItem Foreground="White" Header="Open" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="openButton_Click" InputGestureText="Ctrl+O"/>
                     <MenuItem Foreground="White" Header="Save" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="saveButton_Click" InputGestureText="Ctrl+S"/>
                     <Separator/>
+                    <MenuItem Foreground="White" Header="Publish Code" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="publishCodeButton_Click"/>
+                    <Separator/>
                     <MenuItem Foreground="White" Header="Close" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="closeButton_Click" InputGestureText="Ctrl+W"/>
                     <MenuItem Foreground="White" Header="Exit" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="exitButton_Click" InputGestureText="Alt+F4"/>
                 </MenuItem>
@@ -85,7 +116,7 @@
                     <MenuItem Header="Select all" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="selectAllButton_Click" InputGestureText="Ctrl+A"/>
                 </MenuItem>
             </Menu>
-            <Ellipse Margin="0,10,12,0" x:Name="closeButton" Grid.Row="0" Fill="#eb2121" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" Cursor="Hand" MouseLeftButtonDown="closeButton_Click">
+            <Ellipse Style="{StaticResource Buttons}" Margin="0,10,12,0" x:Name="closeButton" Grid.Row="0" Fill="#eb2121" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" Cursor="Hand" MouseLeftButtonDown="closeButton_Click">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -95,7 +126,7 @@
                     </TransformGroup>
                 </Ellipse.RenderTransform>
             </Ellipse>
-            <Ellipse Margin="0,10,32,0" x:Name="maximazeButton" Grid.Row="0" Fill="#ebb728" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" MouseLeftButtonDown="maximazeButton_Click" Cursor="Hand">
+            <Ellipse Style="{StaticResource Buttons}" Margin="0,10,32,0" x:Name="maximazeButton" Grid.Row="0" Fill="#ebb728" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" MouseLeftButtonDown="maximazeButton_Click" Cursor="Hand">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -105,7 +136,7 @@
                     </TransformGroup>
                 </Ellipse.RenderTransform>
             </Ellipse>
-            <Ellipse Margin="0,10,52,0" x:Name="minimizeButton" Grid.Row="0" Fill="#3ce65b" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" MouseLeftButtonDown="minimizeButton_Click" Cursor="Hand">
+            <Ellipse Style="{StaticResource Buttons}" Margin="0,10,52,0" x:Name="minimizeButton" Grid.Row="0" Fill="#3ce65b" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" MouseLeftButtonDown="minimizeButton_Click" Cursor="Hand">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
