@@ -2,11 +2,9 @@ D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\GlitchCode.exe.config
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\GlitchCode.exe
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\GlitchCode.pdb
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.csproj.AssemblyReference.cache
-D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\MainWindow.g.cs
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\App.g.cs
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode_MarkupCompile.cache
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode_MarkupCompile.lref
-D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\MainWindow.baml
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.g.resources
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.Properties.Resources.resources
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.csproj.GenerateResource.cache
@@ -21,3 +19,7 @@ D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\Newtonsoft.Json.dll
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\DiscordRPC.pdb
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\DiscordRPC.xml
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\Newtonsoft.Json.xml
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\MainWindow.g.cs
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\MainWindow.baml
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\DialogWindow.g.cs
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\DialogWindow.baml

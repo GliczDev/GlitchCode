@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlitchCode"
-        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="GlitchCode.MainWindow"
+        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit" 
+        xmlns:System="clr-namespace:System;assembly=mscorlib" 
+        x:Class="GlitchCode.MainWindow"
         mc:Ignorable="d"
         Title="GlitchCode" 
         Height="450" 
@@ -14,10 +16,13 @@
         MinWidth="800"
         Icon="Images/GlitchCode.png" 
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="CanResize"
         Background="Transparent"
         WindowStyle="None"
         AllowsTransparency="True">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="5" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="7"/>
+    </WindowChrome.WindowChrome>
     <Window.Resources>
         <ControlTemplate x:Key="ContextMenu" TargetType="{x:Type ContextMenu}">
             <Border CornerRadius="5" BorderBrush="#FF2C2F33" BorderThickness="1" Background="#FF2C2F33" SnapsToDevicePixels="True">
@@ -25,7 +30,7 @@
             </Border>
         </ControlTemplate>
         <ControlTemplate x:Key="MenuItem" TargetType="{x:Type MenuItem}">
-            <Border x:Name="Border"  BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                 <Grid>
                     <ContentPresenter Content="{TemplateBinding Header}" Margin="{TemplateBinding Padding}" IsManipulationEnabled="False" ForceCursor="False" RecognizesAccessKey="False" OverridesDefaultStyle="False"/>
                     <Popup AllowsTransparency="True" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}">
@@ -39,6 +44,7 @@
                 <Trigger Property="IsHighlighted" Value="True">
                     <Setter Property="Background" TargetName="Border" Value="#2a4a5b"/>
                     <Setter Property="BorderBrush" TargetName="Border" Value="#26a0da"/>
+                    <Setter Property="Cursor" Value="Hand"/>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -84,7 +90,7 @@
         -->
         <KeyBinding Modifiers="Ctrl" Key="W" Command="ApplicationCommands.Close"/>
     </Window.InputBindings>
-    <Border Background="#2C2F33" CornerRadius="10">
+    <Border x:Name="Border" Background="#2C2F33" CornerRadius="10">
         <Grid>
             <Image 
                 Source="Images/GlitchCode.png"
@@ -94,26 +100,26 @@
                 Height="26" 
                 Margin="10,10,0,40" 
                 Width="23" Grid.RowSpan="2"/>
-            <Menu Background="Transparent" Foreground="White" IsMainMenu="True" Margin="33,10,687,417" FontFamily="/GlitchCode;component/Fonts/#Open Sans" MinHeight="23">
+            <Menu x:Name="MenuStrip" Background="Transparent" Foreground="White" IsMainMenu="True" Margin="33,10,685,417" FontFamily="/GlitchCode;component/Fonts/#Open Sans" MinHeight="23">
                 <MenuItem Foreground="White" Header="File" Template="{StaticResource MenuItem}">
-                    <MenuItem Foreground="White" Header="New" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="newButton_Click" InputGestureText="Ctrl+N"/>
-                    <MenuItem Foreground="White" Header="Open" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="openButton_Click" InputGestureText="Ctrl+O"/>
-                    <MenuItem Foreground="White" Header="Save" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="saveButton_Click" InputGestureText="Ctrl+S"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="New" Background="#2C2F33" BorderBrush="#2C2F33" Click="newButton_Click" InputGestureText="Ctrl+N"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Open" Background="#2C2F33" BorderBrush="#2C2F33" Click="openButton_Click" InputGestureText="Ctrl+O"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Save" Background="#2C2F33" BorderBrush="#2C2F33" Click="saveButton_Click" InputGestureText="Ctrl+S"/>
                     <Separator/>
-                    <MenuItem Foreground="White" Header="Publish Code" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="publishCodeButton_Click"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Publish Code" Background="#2C2F33" BorderBrush="#2C2F33" Click="publishCodeButton_Click"/>
                     <Separator/>
-                    <MenuItem Foreground="White" Header="Close" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="closeButton_Click" InputGestureText="Ctrl+W"/>
-                    <MenuItem Foreground="White" Header="Exit" Background="#2C2F33" BorderBrush="#2C2F33" BorderThickness="2" Click="exitButton_Click" InputGestureText="Alt+F4"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Close" Background="#2C2F33" BorderBrush="#2C2F33" Click="closeButton_Click" InputGestureText="Ctrl+W"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Exit" Background="#2C2F33" BorderBrush="#2C2F33" Click="exitButton_Click" InputGestureText="Alt+F4"/>
                 </MenuItem>
                 <MenuItem Foreground="White" Header="Edit" Template="{StaticResource MenuItem}">
-                    <MenuItem Foreground="White" Header="Undo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="undoButton_Click" InputGestureText="Ctrl+Z"/>
-                    <MenuItem Foreground="White" Header="Redo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="redoButton_Click" InputGestureText="Ctrl+Y"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Undo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="undoButton_Click" InputGestureText="Ctrl+Z"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Redo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="redoButton_Click" InputGestureText="Ctrl+Y"/>
                     <Separator/>
-                    <MenuItem Foreground="White" Header="Cut" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="cutButton_Click" InputGestureText="Ctrl+X"/>
-                    <MenuItem Foreground="White" Header="Copy" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="copyButton_Click" InputGestureText="Ctrl+C"/>
-                    <MenuItem Foreground="White" Header="Paste" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="pasteButton_Click" InputGestureText="Ctrl+V"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Cut" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="cutButton_Click" InputGestureText="Ctrl+X"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Copy" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="copyButton_Click" InputGestureText="Ctrl+C"/>
+                    <MenuItem Cursor="Hand" Foreground="White" Header="Paste" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="pasteButton_Click" InputGestureText="Ctrl+V"/>
                     <Separator/>
-                    <MenuItem Header="Select all" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="selectAllButton_Click" InputGestureText="Ctrl+A"/>
+                    <MenuItem Cursor="Hand" Header="Select all" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="selectAllButton_Click" InputGestureText="Ctrl+A"/>
                 </MenuItem>
             </Menu>
             <Ellipse Style="{StaticResource Buttons}" Margin="0,10,12,0" x:Name="closeButton" Grid.Row="0" Fill="#eb2121" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" Cursor="Hand" MouseLeftButtonDown="closeButton_Click">
@@ -146,17 +152,17 @@
                     </TransformGroup>
                 </Ellipse.RenderTransform>
             </Ellipse>
-            <avalonedit:TextEditor IsEnabled="True" Foreground="White" Background="#23272A" x:Name="AvalonEdit" MinHeight="399" Margin="10,37,10,10" MinWidth="780" FontFamily="/GlitchCode;component/Fonts/#Open Sans" FontSize="16" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowLineNumbers="True" WordWrap="True" BorderBrush="#FF2C2F33" Padding="0">
+            <avalonedit:TextEditor IsEnabled="True" Foreground="White" Background="#23272A" x:Name="AvalonEdit" MinHeight="403" Margin="10,37,10,10" MinWidth="780" FontFamily="/GlitchCode;component/Fonts/#Open Sans" FontSize="16" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowLineNumbers="True" WordWrap="True" BorderBrush="#FF2C2F33">
                 <avalonedit:TextEditor.ContextMenu>
-                    <ContextMenu Template="{StaticResource ContextMenu}" BorderBrush="#FF2C2F33" Foreground="White" HasDropShadow="False" FontFamily="/GlitchCode;component/Fonts/#Open Sans" OpacityMask="#FF2C2F33">
-                        <MenuItem Header="Undo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="undoButton_Click" InputGestureText="Ctrl+Z"/>
-                        <MenuItem Header="Redo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="redoButton_Click" InputGestureText="Ctrl+Y"/>
+                    <ContextMenu x:Name="ContextMenu" Template="{StaticResource ContextMenu}" BorderBrush="#FF2C2F33" Foreground="White" HasDropShadow="False" FontFamily="/GlitchCode;component/Fonts/#Open Sans" OpacityMask="#FF2C2F33">
+                        <MenuItem Cursor="Hand" Header="Undo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="undoButton_Click" InputGestureText="Ctrl+Z"/>
+                        <MenuItem Cursor="Hand" Header="Redo" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="redoButton_Click" InputGestureText="Ctrl+Y"/>
                         <Separator/>
-                        <MenuItem Header="Cut" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="cutButton_Click" InputGestureText="Ctrl+X"/>
-                        <MenuItem Header="Copy" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="copyButton_Click" InputGestureText="Ctrl+C"/>
-                        <MenuItem Header="Paste" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="pasteButton_Click" InputGestureText="Ctrl+V"/>
+                        <MenuItem Cursor="Hand" Header="Cut" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="cutButton_Click" InputGestureText="Ctrl+X"/>
+                        <MenuItem Cursor="Hand" Header="Copy" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="copyButton_Click" InputGestureText="Ctrl+C"/>
+                        <MenuItem Cursor="Hand" Header="Paste" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="pasteButton_Click" InputGestureText="Ctrl+V"/>
                         <Separator/>
-                        <MenuItem Header="Select all" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="selectAllButton_Click" InputGestureText="Ctrl+A"/>
+                        <MenuItem Cursor="Hand" Header="Select all" Background="#FF2C2F33" BorderBrush="#FF2C2F33" Click="selectAllButton_Click" InputGestureText="Ctrl+A"/>
                     </ContextMenu>
                 </avalonedit:TextEditor.ContextMenu>
             </avalonedit:TextEditor>
