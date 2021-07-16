@@ -15,6 +15,9 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 using System.Xml;
 using Button = DiscordRPC.Button;
 
@@ -71,6 +74,18 @@ namespace GlitchCode
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (wantToContinue("Are you sure, to close current file?"))
+            {
+                Closing -= Window_Closing;
+                e.Cancel = true;
+                var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.15));
+                anim.Completed += (s, _) => this.Close();
+                this.BeginAnimation(UIElement.OpacityProperty, anim);
             }
         }
 
@@ -142,19 +157,23 @@ namespace GlitchCode
 
         private void closeButton_Click(object sender, MouseButtonEventArgs e)
         {
-            if (wantToContinue("Are you sure, to close current file?"))
-                Close();
+            this.Close();
         }
         private void maximazeButton_Click(object sender, MouseButtonEventArgs e)
         {
+            ImageBrush ib = new ImageBrush();
             if (MainWindow.GetWindow(this).WindowState == WindowState.Maximized)
             {
+                ib.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/Images/maximaze1.png"));
                 MainWindow.GetWindow(this).WindowState = WindowState.Normal;
             }
             else
             {
+                
+                ib.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/Images/maximaze2.png"));
                 MainWindow.GetWindow(this).WindowState = WindowState.Maximized;
             }
+            maximazeButton.Fill = ib;
         }
         
         private void minimizeButton_Click(object sender, MouseButtonEventArgs e)
@@ -275,5 +294,6 @@ namespace GlitchCode
             if (wantToContinue("Are you sure, to close current file?"))
                 AvalonEdit.Text = "";
         }
+
     }
 }

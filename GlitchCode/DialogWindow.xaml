@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:GlitchCode" xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d"
         Title="GlitchCode" 
-        Icon="Images/GlitchCode.png" 
+        Icon="Images/GlitchCode.ico" 
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="Transparent" 
         AllowsTransparency="True"
         WindowStyle="None" 
         Width="256" 
-        Height="128">
+        Height="128" Closing="Window_Closing">
     <Window.Resources>
         <ControlTemplate x:Key="Button1" TargetType="Button">
             <Border x:Name="Border" CornerRadius="5" Background="#23272A" BorderBrush="#23272A" BorderThickness="1" SnapsToDevicePixels="True">
@@ -51,6 +51,15 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.15" FillBehavior="HoldEnd" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
     <Border Background="#2C2F33" CornerRadius="10">
         <Grid>
             <Image 
@@ -60,8 +69,9 @@
                 RenderTransformOrigin="28.887,-0.097" 
                 Height="26" 
                 Margin="10,10,0,0" 
-                Width="23" Grid.RowSpan="2"/>
-            <Ellipse Style="{StaticResource Buttons}" Margin="0,10,12,0" x:Name="closeButton" Grid.Row="0" Fill="#eb2121" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" Cursor="Hand" MouseLeftButtonDown="closeButton_Click" Grid.RowSpan="2">
+                Width="23" Grid.RowSpan="2"
+                RenderOptions.BitmapScalingMode="HighQuality"/>
+            <Ellipse Style="{StaticResource Buttons}" Margin="0,10,12,0" x:Name="closeButton" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="16" RenderTransformOrigin="0.5,0.5" Width="16" Cursor="Hand" MouseLeftButtonDown="closeButton_Click" Grid.RowSpan="2">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="-1"/>
@@ -70,11 +80,14 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Ellipse.RenderTransform>
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Images/close.png"/>
+                </Ellipse.Fill>
             </Ellipse>
             <TextBlock FontFamily="/GlitchCode;component/Fonts/#Open Sans" FontSize="16" UseLayoutRounding="False" Margin="87,10,87,0" Text="GlitchCode" Foreground="Gray" VerticalAlignment="Top" Height="22"/>
             <Label Name="TextLabel" MinWidth="236" MinHeight="55" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Content="None" Foreground="White" Margin="10,37,10,36" FontSize="14" Background="Transparent"/>
-            <Button IsCancel="True" Template="{StaticResource Button1}" Margin="193,97,10,8" Content="No" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Foreground="White"/>
-            <Button IsDefault="True" Template="{StaticResource Button1}" Margin="135,97,68,8" Content="Yes" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Foreground="White" Click="yesButton_Click"/>
+            <Button x:Name="NoB" IsCancel="True" Template="{StaticResource Button1}" Margin="193,97,10,8" Content="No" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Foreground="White"/>
+            <Button x:Name="YesB" IsDefault="True" Template="{StaticResource Button1}" Margin="135,97,68,8" Content="Yes" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Foreground="White" Click="yesButton_Click"/>
         </Grid>
     </Border>
 </Window>
