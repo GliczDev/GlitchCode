@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GlitchCode" xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:local="clr-namespace:GlitchCode" 
+        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d"
         Title="GlitchCode" 
         Icon="Images/GlitchCode.ico" 
@@ -12,8 +13,8 @@
         Background="Transparent" 
         AllowsTransparency="True"
         WindowStyle="None" 
-        Width="256" 
-        Height="128" Closing="Window_Closing">
+        Width="260" 
+        Height="128" Closing="Window_Closing" Loaded="Window_Loaded">
     <Window.Resources>
         <ControlTemplate x:Key="Button1" TargetType="Button">
             <Border x:Name="Border" CornerRadius="5" Background="#23272A" BorderBrush="#23272A" BorderThickness="1" SnapsToDevicePixels="True">
@@ -86,7 +87,7 @@
             </Ellipse>
             <TextBlock FontFamily="/GlitchCode;component/Fonts/#Open Sans" FontSize="16" UseLayoutRounding="False" Margin="87,10,87,0" Text="GlitchCode" Foreground="Gray" VerticalAlignment="Top" Height="22"/>
             <Label Name="TextLabel" MinWidth="236" MinHeight="55" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Content="None" Foreground="White" Margin="10,37,10,36" FontSize="14" Background="Transparent"/>
-            <Button x:Name="NoB" IsCancel="True" Template="{StaticResource Button1}" Margin="193,97,10,8" Content="No" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Foreground="White"/>
+            <Button x:Name="NoB" IsCancel="True" Template="{StaticResource Button1}" Margin="193,97,10,8" Content="No" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Foreground="White" Click="noButton_Click" />
             <Button x:Name="YesB" IsDefault="True" Template="{StaticResource Button1}" Margin="135,97,68,8" Content="Yes" FontFamily="/GlitchCode;component/Fonts/#Open Sans" Foreground="White" Click="yesButton_Click"/>
         </Grid>
     </Border>

@@ -22,5 +22,29 @@ namespace GlitchCode.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool showLineNumbers {
+            get {
+                return ((bool)(this["showLineNumbers"]));
+            }
+            set {
+                this["showLineNumbers"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool showTabs {
+            get {
+                return ((bool)(this["showTabs"]));
+            }
+            set {
+                this["showTabs"] = value;
+            }
+        }
     }
 }

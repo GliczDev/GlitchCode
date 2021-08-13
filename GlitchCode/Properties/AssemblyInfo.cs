@@ -7,7 +7,7 @@ using System.Windows;
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
-[assembly: AssemblyTitle("GlitchCode")]
+[assembly: AssemblyTitle("Moden Code Editor")]
 [assembly: AssemblyDescription("Moden Code Editor")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("MichixDev")]
@@ -51,6 +51,6 @@ using System.Windows;
 // Możesz określić wszystkie wartości lub użyć domyślnych numerów kompilacji i poprawki
 // przy użyciu symbolu „*”, tak jak pokazano poniżej:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.4.0")]
-[assembly: AssemblyFileVersion("1.0.4.0")]
+[assembly: AssemblyVersion("1.0.5.0")]
+[assembly: AssemblyFileVersion("1.0.5.0")]
 [assembly: NeutralResourcesLanguage("en")]

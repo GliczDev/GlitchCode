@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,12 @@ namespace GlitchCode
     /// </summary>
     public partial class DialogWindow : Window
     {
-        public DialogWindow()
+        public bool IsYes { get; private set; }
+
+        public DialogWindow(string Text)
         {
             InitializeComponent();
+            this.TextLabel.Content = Text;
             _YesB = YesB;
             _NoB = NoB;
         }
@@ -32,6 +36,7 @@ namespace GlitchCode
 
         private void closeButton_Click(object sender, MouseButtonEventArgs e)
         {
+            IsYes = false;
             Close();
         }
 
@@ -44,14 +49,8 @@ namespace GlitchCode
 
         private void yesButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-        }
-
-        public static bool showDialog(string Text)
-        {
-            DialogWindow dialog = new DialogWindow();
-            dialog.TextLabel.Content = Text;
-            return (bool)dialog.ShowDialog();
+            IsYes = true;
+            Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -61,6 +60,17 @@ namespace GlitchCode
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.15));
             anim.Completed += (s, _) => this.Close();
             this.BeginAnimation(UIElement.OpacityProperty, anim);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void noButton_Click(object sender, RoutedEventArgs e)
+        {
+            IsYes = false;
+            Close();
         }
     }
 }

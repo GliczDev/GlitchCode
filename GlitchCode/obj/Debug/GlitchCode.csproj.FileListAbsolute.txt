@@ -21,3 +21,11 @@ D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\MainWindow.baml
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\DialogWindow.g.cs
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\DialogWindow.baml
 D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\System.ValueTuple.dll
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\SettingsWindow.g.cs
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\SettingsWindow.baml
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\StartPage.g.cs
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\StartPage.baml
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\GlitchCode.exe.manifest
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\bin\Debug\GlitchCode.application
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.exe.manifest
+D:\Michał\Visual Studio\GlitchCode\GlitchCode\obj\Debug\GlitchCode.application
