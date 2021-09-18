@@ -4,7 +4,7 @@
 [![Discord](https://img.shields.io/discord/808809804469895208)](https://discord.gg/2dv42hZTC7)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/MichixYT/GlitchCode.svg)](#)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/MichixYT/GlitchCode.svg)](#)<br>
-[![Preview](https://i.imgur.com/TMD1jbH.png)](#)
+[![Preview](https://i.imgur.com/6dOmPaX.png)](#)
 ### About
 GlitchCode is free, open source, modern code editor created in C#<br>
 You can find my todo list on [GitHub Projects](https://github.com/MichixYT/GlitchCode/projects/1)
