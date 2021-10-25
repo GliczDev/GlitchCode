@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GlitchCode": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
