@@ -4,7 +4,7 @@
 You can find my todo list on [GitHub Projects](https://github.com/MichixYT/GlitchCode/projects/1)
 ## Instalation
 Currently GlitchCode supports **only** Windows.<br>
-Program requires .NET 5.<br>
+Program requires .NET 6.<br>
 You can download latest release [here](https://github.com/MichixYT/GlitchCode/releases/latest).
 ## Addons, Styles and Syntax Highlighting
 You can find Official Addons List [here](https://github.com/MichixYT/GlitchCode/wiki/Official-Addons-List).
