@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using System.Diagnostics;
 
 namespace GlitchCode.Managers
 {
@@ -30,12 +29,6 @@ namespace GlitchCode.Managers
                 }
             });
             client.Initialize();
-            Debug.WriteLine(client.IsInitialized);
-        }
-
-        public static void Deinitialize()
-        {
-            client.Deinitialize();
         }
 
         public static void UpdateFile(string file)

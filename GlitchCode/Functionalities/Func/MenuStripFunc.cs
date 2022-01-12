@@ -8,13 +8,17 @@ namespace GlitchCode.Functionalities.Func
 {
     class MenuStripFunc : IFuncionality
     {
-        Menu menuStrip = MainWindow.TitleBarItems.Find(item => item.Name == "MenuStrip") as Menu;
+        Menu menuStrip = WindowManager.getMainWindow().MenuStrip;
 
-        public void Load()
+        public void onEnable()
         {
             foreach (MenuItem menuItem in (menuStrip.Items[0] as MenuItem).Items.OfType<MenuItem>())
             {
                 menuItem.Click += fileMenuItems_Click;
+            }
+            foreach (MenuItem menuItem in (menuStrip.Items[1] as MenuItem).Items.OfType<MenuItem>())
+            {
+                menuItem.Click += editMenuItems_Click;
             }
         }
 
@@ -37,6 +41,32 @@ namespace GlitchCode.Functionalities.Func
                     break;
                 case "close_MenuItem":
                     Environment.Exit(0);
+                    break;
+            }
+        }
+
+        void editMenuItems_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            switch (menuItem.Name)
+            {
+                case "undo_MenuItem":
+                    FileManager.getTextEditor().Undo();
+                    break;
+                case "redo_MenuItem":
+                    FileManager.getTextEditor().Redo();
+                    break;
+                case "cut_MenuItem":
+                    FileManager.getTextEditor().Cut();
+                    break;
+                case "copy_MenuItem":
+                    FileManager.getTextEditor().Copy();
+                    break;
+                case "paste_MenuItem":
+                    FileManager.getTextEditor().Paste();
+                    break;
+                case "selectAll_MenuItem":
+                    FileManager.getTextEditor().SelectAll();
                     break;
             }
         }

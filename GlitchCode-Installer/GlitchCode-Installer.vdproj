@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_515DBD2D7A504B46AD124DD098F10043"
+        "MsmKey" = "8:_36C1DF4553DF4BABB06B47CD1905289E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -82,6 +82,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -114,9 +122,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_515DBD2D7A504B46AD124DD098F10043"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36C1DF4553DF4BABB06B47CD1905289E"
             {
-            "SourcePath" = "8:..\\GlitchCode\\Images\\GlitchCode.ico"
+            "SourcePath" = "8:..\\..\\glitchcode_P7T_icon.ico"
             "TargetName" = "8:app.ico"
             "Tag" = "8:"
             "Folder" = "8:_2A79972AFE5D4198A4CBB96E00585957"
@@ -161,6 +169,17 @@
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_CBD2FC3C858B43738819A4B13A7FA707"
+                    {
+                    "Name" = "8:GlitchDev"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_84E3A8D5BC714F3AA87CB19A13316C75"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_F6C6418D312644938C495A6C6A878D04"
@@ -191,24 +210,24 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GlitchCode"
         "ProductCode" = "8:{8BD1985F-32A5-449C-A3BA-01F300744DC9}"
-        "PackageCode" = "8:{2AA07284-D23D-4B99-84D4-044C1C3756A1}"
+        "PackageCode" = "8:{EDA9999E-AFAE-4EA4-8B41-5A567AF5032D}"
         "UpgradeCode" = "8:{EAEB3D7B-A438-4AF1-A95A-94EE15ED0191}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.6"
-        "Manufacturer" = "8:Glitch's Software"
+        "Manufacturer" = "8:GliczDev"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
+        "ARPHELPLINK" = "8:https://github.com/MichixYT/GlitchCode"
         "Title" = "8:GlitchCode Installer"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Glitch's Software"
+        "ARPCONTACT" = "8:GliczDev"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:Installer for GlitchCode"
+        "ARPCOMMENTS" = "8:Modern Code Editor"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_515DBD2D7A504B46AD124DD098F10043"
+        "ARPPRODUCTICON" = "8:_36C1DF4553DF4BABB06B47CD1905289E"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -311,6 +330,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_57FC01238F504627A9077A0219C64385"
+            {
+            "Name" = "8:GlitchCode"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_9742050C12AA424ABA4EB4417C9769AD"
+            "Folder" = "8:_F6C6418D312644938C495A6C6A878D04"
+            "WorkingFolder" = "8:_2A79972AFE5D4198A4CBB96E00585957"
+            "Icon" = "8:_36C1DF4553DF4BABB06B47CD1905289E"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7F4753858EC74A2EBA36B575F3B31C8F"
+            {
+            "Name" = "8:GlitchCode"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_9742050C12AA424ABA4EB4417C9769AD"
+            "Folder" = "8:_CBD2FC3C858B43738819A4B13A7FA707"
+            "WorkingFolder" = "8:_2A79972AFE5D4198A4CBB96E00585957"
+            "Icon" = "8:_36C1DF4553DF4BABB06B47CD1905289E"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -712,7 +759,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9742050C12AA424ABA4EB4417C9769AD"
             {
-            "SourcePath" = "8:..\\GlitchCode\\obj\\Debug\\net5.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\GlitchCode\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2A79972AFE5D4198A4CBB96E00585957"

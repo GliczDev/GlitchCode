@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="GlitchCode.Pages.AboutPage"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:GlitchCode.Pages"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+			 mc:Ignorable="d" 
+			 d:DesignHeight="70" 
+			 d:DesignWidth="160">
+    <Grid>
+        <Image 
+            Source="/Images/GlitchCode.png" 
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Left" 
+            Height="64" />
+        <TextBlock 
+            Text="GlitchCode" 
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Left" 
+            FontSize="16"
+            FontFamily="/GlitchCode;component/Fonts/#Open Sans" 
+            Foreground="{DynamicResource PrimaryTextBrush}" 
+            Margin="70 0 0 0" />
+        <TextBlock 
+            x:Name="Version"
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Left" 
+            FontSize="12"
+            FontFamily="/GlitchCode;component/Fonts/#Open Sans" 
+            Foreground="{DynamicResource PrimaryTextBrush}" 
+            Margin="70 22 0 0"
+            Text="Version: " />
+    </Grid>
+</UserControl>

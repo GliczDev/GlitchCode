@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit" >
+                    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit">
     <Style x:Key="TextEditor" TargetType="{x:Type avalonedit:TextEditor}">
         <Setter Property="IsEnabled" Value="True"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
@@ -13,5 +13,6 @@
         <Setter Property="ShowLineNumbers" Value="True"/>
         <Setter Property="WordWrap" Value="True"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="ContextMenu" Value="{StaticResource ContextMenu}" />
     </Style>
 </ResourceDictionary>

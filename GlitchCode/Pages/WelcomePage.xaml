@@ -20,7 +20,7 @@
             </TextBlock>
             <TextBlock 
                 VerticalAlignment="Bottom"
-                Text="DEV RELEASE - v1.0.6-Dev1"
+                Text="DEV RELEASE - v1.0.6-Dev2"
                 Foreground="{DynamicResource PrimaryTextBrush}" />
             <TextBlock
                 Text="Fast Actions" 

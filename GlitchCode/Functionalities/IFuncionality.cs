@@ -2,6 +2,6 @@
 {
     public interface IFuncionality
     {
-        void Load();
+        void onEnable();
     }
 }

@@ -17,7 +17,7 @@ namespace GlitchCode.Managers
             foreach (var type in types)
             {
                 var funcInstance = (IFuncionality)Activator.CreateInstance(type);
-                funcInstance.Load();
+                funcInstance.onEnable();
             }
         }
     }

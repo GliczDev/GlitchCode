@@ -2,17 +2,19 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GlitchCode"
+             xmlns:hc="https://handyorg.github.io/handycontrol" 
              StartupUri="MainWindow.xaml"
-             xmlns:hc="https://handyorg.github.io/handycontrol">
+             Startup="Application_Startup">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Themes\VSCode.xaml"/>
-                <ResourceDictionary Source="Styles\LeftBarStyle.xaml"/>
-                <ResourceDictionary Source="Styles\TextEditor.xaml"/>
-                <ResourceDictionary Source="Languages\English.xaml"/>
-                <hc:ThemeResources RequestedTheme="Dark"/>
+                <hc:ThemeResources RequestedTheme="Dark" />
                 <hc:Theme/>
+                <ResourceDictionary Source="Prefabs\ContextMenu.xaml"/>
+                <ResourceDictionary Source="Styles\TextEditor.xaml"/>
+                <ResourceDictionary Source="Styles\SearchPanel.xaml"/>
+                <ResourceDictionary Source="Styles\Growl.xaml"/>
+                <ResourceDictionary Source="Languages\English.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

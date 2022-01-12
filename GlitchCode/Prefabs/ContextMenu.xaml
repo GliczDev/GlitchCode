@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol">
+    <ContextMenu 
+        x:Key="ContextMenu"
+        hc:MenuAttach.IsEnabledAnimation="False">
+        <MenuItem 
+            x:Name="undo_MenuItem"
+            Header="Undo"
+            InputGestureText="Ctrl+Z" />
+        <MenuItem 
+            x:Name="redo_MenuItem"
+            Header="Redo" 
+            InputGestureText="Ctrl+Y" />
+        <Separator />
+        <MenuItem 
+            x:Name="cut_MenuItem"
+            Header="Cut" 
+            InputGestureText="Ctrl+X" />
+        <MenuItem 
+            x:Name="copy_MenuItem"
+            Header="Copy" 
+            InputGestureText="Ctrl+C" />
+        <MenuItem 
+            x:Name="paste_MenuItem"
+            Header="Paste" 
+            InputGestureText="Ctrl+V" />
+        <Separator />
+        <MenuItem 
+            x:Name="selectAll_MenuItem"
+            Header="Select all" 
+            InputGestureText="Ctrl+A" />
+    </ContextMenu>
+</ResourceDictionary>

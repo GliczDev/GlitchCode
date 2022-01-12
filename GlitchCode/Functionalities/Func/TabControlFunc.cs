@@ -1,24 +1,15 @@
 ﻿using GlitchCode.Managers;
-using System.Linq;
 using System.Windows.Controls;
 using TabControl = HandyControl.Controls.TabControl;
 using TabItem = HandyControl.Controls.TabItem;
 
 namespace GlitchCode.Functionalities.Func
 {
-    internal class TabControlFunc : IFuncionality
+    class TabControlFunc : IFuncionality
     {
-        TabControl tabControl = (((MainWindow.Items.Find(item => item.Name == "MainContent") as Border)
-            .Child as Grid)
-            .Children
-            .OfType<Border>()
-            .Single(item => item.Name == "Editor")
-            .Child as Grid)
-            .Children
-            .OfType<TabControl>()
-            .Single(item => item.Name == "TabControl");
+        TabControl tabControl = WindowManager.getMainWindow().TabControl;
 
-        public void Load()
+        public void onEnable()
         {
             tabControl.SelectionChanged += tabControl_SelectionChanged;
             DiscordRPCManager.UpdateFile((tabControl.SelectedItem as TabItem).Header.ToString());

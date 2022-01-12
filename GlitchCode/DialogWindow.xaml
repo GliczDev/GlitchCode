@@ -1,0 +1,44 @@
+﻿<hc:Window x:Class="GlitchCode.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GlitchCode"
+        mc:Ignorable="d"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="GlitchCode"
+        ShowTitle="False"
+        MinHeight="360"
+        Height="400"
+        MaxHeight="400"
+        MinWidth="682"
+        Width="682"
+        MaxWidth="682"
+        WindowStartupLocation="CenterScreen"
+        hc:WindowAttach.IsDragElement="True"
+        ShowMaxButton="False"
+        Background="{DynamicResource RegionBrush}">
+    <hc:Window.NonClientAreaContent>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                Height="22"
+                Margin="4 5"
+                Source="Images/GlitchCode.png"
+                RenderOptions.BitmapScalingMode="HighQuality"/>
+            <TextBlock
+                FontFamily="Fonts/#Open Sans"
+                Grid.Column="1"
+                Margin="4 0 -55 0"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Text="GlitchCode"
+                Foreground="{DynamicResource SecondaryTextBrush}"
+                HorizontalAlignment="Center"/>
+        </Grid>
+    </hc:Window.NonClientAreaContent>
+</hc:Window>
